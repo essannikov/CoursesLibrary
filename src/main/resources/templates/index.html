@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <script src="/js/jquery-3.7.1.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <div id="student-form">
+        <form>
+            <h2>Add student</h2>
+            <label>Student name:</label>
+            <input type="text" name="name" value="">
+            <label>Age:</label>
+            <input type="text" name="age" value="">
+            <label>Registration date:</label>
+            <input type="date" name="registrationDate" value="">
+            <hr>
+            <button id="save-student">Save</button>
+        </form>
+    </div>
+    <h1>Students (<span th:text="${studentsCount}">0</span>)</h1>
+    <button id="show-add-student-form">Add student</button>
+    <br><br>
+    <div id="student-list">
+        <div th:each="student : ${students}">
+            <a href="#" class="student-link" th:attr="data-id=${student.id}" th:text="${student.name}"></a>
+        </div>
+    </div>
+    <p th:text="${someParameter}"></p>
+</body>
+</html>
